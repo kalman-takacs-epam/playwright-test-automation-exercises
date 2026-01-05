@@ -57,6 +57,10 @@ Automation Exercise is a public e-commerce demo site with a full UI and backend 
 
 ## Prerequisite Training
 
-Recommended training:
+Recommended trainings:
 - Master Test Automation with Playwright (LinkedIn Learning)  
   https://www.linkedin.com/learning/paths/master-test-automation-with-playwright?dApp=53239054&leis=LAA&u=2113185
+- GitHub Actions Cert Prep by Microsoft Press
+  https://www.linkedin.com/learning/github-actions-cert-prep-by-microsoft-press?u=2113185
+- GitHub Copilot for Software Developers by Microsoft Press
+  https://www.linkedin.com/learning/github-copilot-for-software-developers-by-microsoft-press?u=2113185
