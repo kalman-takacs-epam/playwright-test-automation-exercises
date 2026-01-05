@@ -1,66 +1,89 @@
-# Test Automation Exercises (Mini Projects)
+# AI-Native Playwright Test Automation Mini Projects
 
-This repository collects two test-automation mini projects with requirements and user stories. Use this as a training / practice repo for building Playwright-based frameworks, CI pipelines, and reporting.
+This repository contains two professional-grade test automation mini projects. The goal is to build robust Playwright-based frameworks, leveraging AI tools (GitHub Copilot, Playwright MCP) for code generation, exploration, and self-healing, while following strict software engineering principles.
 
----
-
-## Mini Project 1: API-Only Testing with Playwright
-
-API: https://restful-booker.herokuapp.com/apidoc/index.html
-
-A public API for booking management with token-based and basic authentication. It supports full CRUD operations and resets data every 10 minutes, ensuring a consistent test environment.
-
-### Requirements
-- Build a Playwright test framework for API testing from scratch.
-- Implement a layered architecture (test, service, utils, config).
-- Use design patterns and principles (e.g., Dependency inversion principle, Builder, Factory for data).
-- Integrate ESLint, Prettier, and Husky for code quality and pre-commit checks.
-- Implement Allure reporting.
-- Use GitHub for version control, GitHub Actions for CI, and GitHub Copilot for code suggestions.
-- Create a CI pipeline that runs tests, lints code, and generates reports.
-
-### User Stories
-- As a tester, I want to authenticate using the /auth endpoint so that I can obtain a token for subsequent requests.
-- As a tester, I want to create a new booking and verify the booking details via GET requests.
-- As a tester, I want to update an existing booking and validate the changes.
-- As a tester, I want to delete a booking and confirm it is no longer retrievable.
-- As a tester, I want to verify that unauthorized requests are rejected with appropriate error codes.
-- As a tester, I want to generate and view Allure reports for all test runs.
-- As a tester, I want the pipeline to fail if linting or tests fail, and to upload the Allure report as an artifact.
-
----
-
-## Mini Project 2: UI and Backend End-to-End Testing
-
-Site: https://automationexercise.com/
-
-Automation Exercise is a public e-commerce demo site with a full UI and backend API, designed for testing purposes.
-
-### Requirements
-- Build a Playwright test framework for end-to-end (UI + API) testing from scratch.
-- Use a layered architecture (test, page objects, API services, utils, config).
-- Apply design principles and patterns (Page Object Model, DRY, SOLID).
-- Integrate ESLint, Prettier, and Husky.
-- Implement Allure reporting.
-- Use GitHub, GitHub Actions, and GitHub Copilot.
-- Create a CI pipeline that runs UI and API tests, lints code, and generates reports.
-
-### User Stories
-- As a tester, I want to register a new user via the UI and verify the user is created via the backend API.
-- As a tester, I want to log in as a user and add products to the cart, verifying cart contents via the API.
-- As a tester, I want to complete a purchase and confirm the order appears in the user’s order history.
-- As a tester, I want to test negative scenarios (e.g., invalid login, out-of-stock purchase) and verify error handling.
-- As a tester, I want to generate and view Allure reports for all test runs.
-- As a tester, I want the pipeline to fail if linting or tests fail, and to upload the Allure report as an artifact.
+**Planned Duration:** 2 weeks
 
 ---
 
 ## Prerequisite Trainings
 
-Recommended trainings:
-- Master Test Automation with Playwright (LinkedIn Learning)  
-  https://www.linkedin.com/learning/paths/master-test-automation-with-playwright?dApp=53239054&leis=LAA&u=2113185
-- GitHub Actions Cert Prep by Microsoft Press
-  https://www.linkedin.com/learning/github-actions-cert-prep-by-microsoft-press?u=2113185
-- GitHub Copilot for Software Developers by Microsoft Press
-  https://www.linkedin.com/learning/github-copilot-for-software-developers-by-microsoft-press?u=2113185
+- [Master Test Automation with Playwright (LinkedIn Learning)](https://www.linkedin.com/learning/paths/master-test-automation-with-playwright?dApp=53239054&leis=LAA&u=2113185)
+- [GitHub Actions Cert Prep by Microsoft Press](https://www.linkedin.com/learning/github-actions-cert-prep-by-microsoft-press?u=2113185)
+- [GitHub Copilot for Software Developers by Microsoft Press](https://www.linkedin.com/learning/github-copilot-for-software-developers-by-microsoft-press?u=2113185)
+
+**Nice to have:**  
+- [Playwright MCP Videos](https://playwright.dev/community/mcp-videos)  
+- [Playwright Learn Videos](https://playwright.dev/community/learn-videos)
+
+---
+
+## Mini Project 1: API-Native Automation (Restful-Booker)
+
+**Target:** [Restful-Booker API](https://restful-booker.herokuapp.com/apidoc/index.html)  
+A public API for booking management with token-based and basic authentication, supporting full CRUD operations.
+
+### AI-Augmented Requirements
+- **MCP Exploration:** Use Playwright MCP to analyze API documentation and auto-generate TypeScript interfaces/types.
+- **Layered Architecture:** Implement a Service layer abstracting API calls. Use Copilot to refactor repetitive code into a Builder Pattern for request payloads.
+- **Dependency Inversion:** Use AI to design a ServiceFactory for swapping real and mock services.
+- **Data Generation:** Integrate faker.js via a Factory Pattern for dynamic booking data.
+- **Quality Gates:** Integrate ESLint, Prettier, and Husky. Use Copilot to resolve linting conflicts.
+
+### User Stories
+- As a tester, I want to use Copilot to generate a secure AuthService that manages token state globally via Playwright storageState.
+- As a tester, I want to use MCP-guided prompts to generate a sequence of tests: Create → Verify (GET) → Update (PUT/PATCH) → Delete.
+- As a tester, I want to use AI to brainstorm and generate edge-case scenarios (invalid tokens, malformed JSON) and verify 4xx/5xx responses.
+- As a tester, I want Allure reports integrated into the CI/CD pipeline with GitHub Actions.
+- As a tester, I want the pipeline to fail if linting or tests fail, and to upload the Allure report as an artifact.
+
+---
+
+## Mini Project 2: E2E Hybrid Automation (Automation Exercise)
+
+**Target:** [Automation Exercise](https://automationexercise.com/)  
+A public e-commerce demo site with a full UI and backend API.
+
+### AI-Augmented Requirements
+- **Agentic POM Generation:** Use Playwright MCP to inspect the website and have Copilot generate Page Object Models (POM) with optimized locators.
+- **UI-API Synchronization:** Implement hybrid testing—use the API to set up test state (e.g., creating a user) and the UI to perform actions (e.g., shopping).
+- **Self-Healing Implementation:** Configure Playwright Healer Agent to identify and suggest fixes for broken selectors during UI updates.
+- **Architecture:** Adhere to DRY and SOLID principles. Use Copilot Chat for "Refactor Sessions" on Page Objects.
+
+### User Stories
+- As a tester, I want to register a user via UI and immediately verify their existence in the backend via the API service.
+- As a tester, I want to add items to a cart via the API and verify they appear correctly in the UI cart, ensuring data consistency.
+- As a tester, I want to complete a purchase and use an AI-generated script to verify the order history matches the UI confirmation.
+- As a tester, I want to test negative scenarios (e.g., invalid login, out-of-stock purchase) and verify error handling.
+- As a tester, I want the GitHub Actions pipeline to fail on linting/test errors and provide a Playwright Trace Viewer link for visual debugging.
+
+---
+
+## Shared Technical Standards
+
+| Component         | Technology / Pattern                                      |
+|-------------------|----------------------------------------------------------|
+| Language          | TypeScript (Strict Mode)                                 |
+| Testing Engine    | Playwright (using Fixtures and Locators)                 |
+| AI Tools          | GitHub Copilot + Playwright MCP (Planner/Healer)         |
+| Patterns          | POM, Factory, Builder, Dependency Inversion              |
+| Infrastructure    | GitHub Actions, Husky, Allure Reports                    |
+
+---
+
+## Definition of Done (DoD)
+
+### 1. Architectural Excellence
+- [ ] No Hardcoded Data: All test data is generated via an AI-guided Data Factory.
+- [ ] Strict Layering: No direct page or request calls inside `.spec` files (must go through Service/Page layers).
+- [ ] Custom Fixtures: Playwright fixtures are used to inject Services/Pages into tests.
+
+### 2. AI Tooling Integration
+- [ ] Prompt Documentation: A `PROMPTS.md` file exists, logging how Copilot/MCP were used to solve complex architectural hurdles.
+- [ ] MCP Usage: Evidence of using Playwright MCP for site exploration and locator generation.
+- [ ] Automated Healing: At least one instance of using AI to fix a test failure is demonstrated.
+
+### 3. CI/CD & Reporting
+- [ ] Pre-commit Hooks: Husky blocks commits that fail ESLint or Prettier.
+- [ ] Pipeline: GitHub Actions runs tests in parallel (sharding enabled) and uploads Allure Reports as artifacts.
+- [ ] Traceability: Failed tests in CI generate a Playwright Trace for review.
