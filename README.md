@@ -55,7 +55,7 @@ Automation Exercise is a public e-commerce demo site with a full UI and backend 
 
 ---
 
-## Prerequisite Training
+## Prerequisite Trainings
 
 Recommended trainings:
 - Master Test Automation with Playwright (LinkedIn Learning)  
