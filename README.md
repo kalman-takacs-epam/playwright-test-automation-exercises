@@ -6,7 +6,9 @@ This repository contains two professional-grade test automation mini projects. T
 
 ---
 
-## Prerequisite Trainings
+## Recommended Trainings
+
+If you are new to Playwright, GitHub Copilot, or GitHub Actions, the following trainings are recommended (but not required):
 
 - [Master Test Automation with Playwright (LinkedIn Learning)](https://www.linkedin.com/learning/paths/master-test-automation-with-playwright?dApp=53239054&leis=LAA&u=2113185)
 - [GitHub Actions Cert Prep by Microsoft Press](https://www.linkedin.com/learning/github-actions-cert-prep-by-microsoft-press?u=2113185)
@@ -15,6 +17,20 @@ This repository contains two professional-grade test automation mini projects. T
 **Nice to have:**  
 - [Playwright MCP Videos](https://playwright.dev/community/mcp-videos)  
 - [Playwright Learn Videos](https://playwright.dev/community/learn-videos)
+
+---
+
+## AI Usage Approach
+
+Before starting, please choose your preferred approach for using AI during the projects:
+
+- **Full AI-First Approach:**  
+  Use AI tools (GitHub Copilot, Playwright MCP, etc.) as your primary assistants for exploration, code generation, refactoring, and troubleshooting throughout the entire development process.
+
+- **AI as Support:**  
+  Use AI tools mainly as a helper when you are stuck, need inspiration, or want to speed up the implementation of specific features, but rely primarily on your own knowledge and manual coding.
+
+Please indicate your chosen approach at the beginning of your work and document your experience accordingly.
 
 ---
 
@@ -87,3 +103,4 @@ A public e-commerce demo site with a full UI and backend API.
 - [ ] Pre-commit Hooks: Husky blocks commits that fail ESLint or Prettier.
 - [ ] Pipeline: GitHub Actions runs tests in parallel (sharding enabled) and uploads Allure Reports as artifacts.
 - [ ] Traceability: Failed tests in CI generate a Playwright Trace for review.
+- [ ] (Optional) Allure Report is published to GitHub Pages automatically from the pipeline.
