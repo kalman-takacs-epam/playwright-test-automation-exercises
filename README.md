@@ -30,7 +30,8 @@ Before starting, please choose your preferred approach for using AI during the p
 - **AI as Support:**  
   Use AI tools mainly as a helper when you are stuck, need inspiration, or want to speed up the implementation of specific features, but rely primarily on your own knowledge and manual coding.
 
-Please indicate your chosen approach at the beginning of your work and document your experience accordingly.
+**Documentation Requirement:**  
+For each major feature or task, briefly document whether you used AI, manual coding, or a combination, and why you chose that approach. This can be done in a `PROMPTS.md` or as comments in your code.
 
 ---
 
@@ -39,18 +40,21 @@ Please indicate your chosen approach at the beginning of your work and document 
 **Target:** [Restful-Booker API](https://restful-booker.herokuapp.com/apidoc/index.html)  
 A public API for booking management with token-based and basic authentication, supporting full CRUD operations.
 
-### AI-Augmented Requirements
-- **MCP Exploration:** Use Playwright MCP to analyze API documentation and auto-generate TypeScript interfaces/types.
-- **Layered Architecture:** Implement a Service layer abstracting API calls. Use Copilot to refactor repetitive code into a Builder Pattern for request payloads.
-- **Dependency Inversion:** Use AI to design a ServiceFactory for swapping real and mock services.
-- **Data Generation:** Integrate faker.js via a Factory Pattern for dynamic booking data.
-- **Quality Gates:** Integrate ESLint, Prettier, and Husky. Use Copilot to resolve linting conflicts.
+### Requirements
+- Use Playwright MCP and/or manual exploration to analyze API documentation and generate TypeScript interfaces/types.
+- Implement a Service layer abstracting API calls, using Copilot or manual refactoring as preferred.
+- Apply design patterns and principles (e.g., Dependency Inversion, Builder, Factory for data), with or without AI assistance.
+- Integrate faker.js for dynamic booking data, either with AI assistance or by hand.
+- Integrate ESLint, Prettier, and Husky for code quality and pre-commit checks, resolving issues with or without Copilot.
+- Implement Allure reporting.
+- Use GitHub for version control, GitHub Actions for CI, and optionally Copilot for code suggestions.
+- Create a CI pipeline that runs tests, lints code, and generates reports.
 
 ### User Stories
-- As a tester, I want to use Copilot to generate a secure AuthService that manages token state globally via Playwright storageState.
-- As a tester, I want to use MCP-guided prompts to generate a sequence of tests: Create → Verify (GET) → Update (PUT/PATCH) → Delete.
-- As a tester, I want to use AI to brainstorm and generate edge-case scenarios (invalid tokens, malformed JSON) and verify 4xx/5xx responses.
-- As a tester, I want Allure reports integrated into the CI/CD pipeline with GitHub Actions.
+- As a tester, I want to implement authentication (using either AI-generated code or my own solution) and document my approach.
+- As a tester, I want to create, update, and delete bookings, experimenting with both AI-assisted and manual test generation.
+- As a tester, I want to handle negative scenarios (e.g., invalid tokens, malformed JSON), optionally brainstorming edge cases with AI, and compare with my own ideas.
+- As a tester, I want to generate and view Allure reports for all test runs.
 - As a tester, I want the pipeline to fail if linting or tests fail, and to upload the Allure report as an artifact.
 
 ---
@@ -60,17 +64,20 @@ A public API for booking management with token-based and basic authentication, s
 **Target:** [Automation Exercise](https://automationexercise.com/)  
 A public e-commerce demo site with a full UI and backend API.
 
-### AI-Augmented Requirements
-- **Agentic POM Generation:** Use Playwright MCP to inspect the website and have Copilot generate Page Object Models (POM) with optimized locators.
-- **UI-API Synchronization:** Implement hybrid testing—use the API to set up test state (e.g., creating a user) and the UI to perform actions (e.g., shopping).
-- **Self-Healing Implementation:** Configure Playwright Healer Agent to identify and suggest fixes for broken selectors during UI updates.
-- **Architecture:** Adhere to DRY and SOLID principles. Use Copilot Chat for "Refactor Sessions" on Page Objects.
+### Requirements
+- Use Playwright MCP and/or manual inspection to generate Page Object Models (POM) with optimized locators.
+- Implement hybrid testing—use the API to set up test state (e.g., creating a user) and the UI to perform actions (e.g., shopping), with or without AI support.
+- Configure Playwright Healer Agent and/or manual strategies to identify and fix broken selectors during UI updates.
+- Apply DRY and SOLID principles, using Copilot Chat for refactoring sessions or manual refactoring as preferred.
+- Integrate ESLint, Prettier, and Husky.
+- Implement Allure reporting.
+- Use GitHub, GitHub Actions, and optionally Copilot.
 
 ### User Stories
-- As a tester, I want to register a user via UI and immediately verify their existence in the backend via the API service.
-- As a tester, I want to add items to a cart via the API and verify they appear correctly in the UI cart, ensuring data consistency.
-- As a tester, I want to complete a purchase and use an AI-generated script to verify the order history matches the UI confirmation.
-- As a tester, I want to test negative scenarios (e.g., invalid login, out-of-stock purchase) and verify error handling.
+- As a tester, I want to register a user via UI and verify their existence in the backend via the API service, using either AI or manual implementation.
+- As a tester, I want to add items to a cart via the API and verify they appear correctly in the UI cart, ensuring data consistency, and document my approach.
+- As a tester, I want to complete a purchase and verify the order history matches the UI confirmation, optionally comparing AI-generated and hand-written scripts.
+- As a tester, I want to test negative scenarios (e.g., invalid login, out-of-stock purchase) and verify error handling, using AI for brainstorming or my own ideas.
 - As a tester, I want the GitHub Actions pipeline to fail on linting/test errors and provide a Playwright Trace Viewer link for visual debugging.
 
 ---
@@ -90,17 +97,22 @@ A public e-commerce demo site with a full UI and backend API.
 ## Definition of Done (DoD)
 
 ### 1. Architectural Excellence
-- [ ] No Hardcoded Data: All test data is generated via an AI-guided Data Factory.
+- [ ] No Hardcoded Data: All test data is generated via an AI-guided Data Factory or manually implemented factory.
 - [ ] Strict Layering: No direct page or request calls inside `.spec` files (must go through Service/Page layers).
 - [ ] Custom Fixtures: Playwright fixtures are used to inject Services/Pages into tests.
 
 ### 2. AI Tooling Integration
-- [ ] Prompt Documentation: A `PROMPTS.md` file exists, logging how Copilot/MCP were used to solve complex architectural hurdles.
-- [ ] MCP Usage: Evidence of using Playwright MCP for site exploration and locator generation.
-- [ ] Automated Healing: At least one instance of using AI to fix a test failure is demonstrated.
+- [ ] Prompt Documentation: A `PROMPTS.md` file exists, logging how Copilot/MCP or manual approaches were used to solve complex architectural hurdles.
+- [ ] MCP Usage: Evidence of using Playwright MCP for site exploration and locator generation, or documentation of manual alternatives.
+- [ ] Automated Healing: At least one instance of using AI or manual strategies to fix a test failure is demonstrated.
 
 ### 3. CI/CD & Reporting
 - [ ] Pre-commit Hooks: Husky blocks commits that fail ESLint or Prettier.
 - [ ] Pipeline: GitHub Actions runs tests in parallel (sharding enabled) and uploads Allure Reports as artifacts.
 - [ ] Traceability: Failed tests in CI generate a Playwright Trace for review.
 - [ ] (Optional) Allure Report is published to GitHub Pages automatically from the pipeline.
+
+---
+
+**Remember:**  
+For each major feature, document your chosen approach (AI, manual, or both) and your reasoning. This reflection is a key part of the learning process!
