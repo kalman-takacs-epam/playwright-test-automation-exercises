@@ -108,6 +108,7 @@ A public e-commerce demo site with a full UI and backend API.
 
 ### 3. CI/CD & Reporting
 - [ ] Pre-commit Hooks: Husky blocks commits that fail ESLint or Prettier.
+- [ ] Pull request: A pull request is created for the whole framework.
 - [ ] Pipeline: GitHub Actions runs tests in parallel (sharding enabled) and uploads Allure Reports as artifacts.
 - [ ] Traceability: Failed tests in CI generate a Playwright Trace for review.
 - [ ] (Optional) Allure Report is published to GitHub Pages automatically from the pipeline.
